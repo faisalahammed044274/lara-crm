@@ -1,0 +1,42 @@
+<?php
+
+use App\Http\Controllers\PostsController;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+ */
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+// Route::get('/about', function () {
+//     return 'This is <b>ABOUT</b> Page';
+// });
+
+// Route::get('/contact', function () {
+//     return 'This is <b>CONTACT</b> Page';
+// });
+
+// Route::get('/posts/{id}/{name}', function($id,$name){
+//    return  "This is post number " . $id . " which is created by ".$name;
+// });
+// Route::get('admin/posts/example',array('as'=>'admin.home',function(){
+//     $url = route('admin.home');
+
+//     return "This URL is " . $url;
+// }));
+
+// Route::get('/post/{name}/{id}', [PostsController::class, 'index'])->name('index');
+Route::get('/about', [PostsController::class, 'about'])->name('about');
+Route::get('/show/{id}/{name}/{password}', [PostsController::class, 'showPosts'])->name('show');
+
+// Route::resource('post/{name}/{id}', PostsController::class);
