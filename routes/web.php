@@ -59,11 +59,16 @@ Database Raw SQL Queries
 
 // });
 
-Route::get('/update', function(){
+// Route::get('/update', function(){
     
-    $updated = DB::update('update posts set title = "PHP with Laravel" where id =?', [1]);
+//     $updated = DB::update('update posts set title = "PHP with Laravel" where id =?', [1]);
 
-    return $updated;
+//     return $updated;
+// });
+
+Route::get('/delete', function(){
+    $deleted = DB::delete('delete from posts where id = ?',[3]);
+    return $deleted;
 });
 
 // Route::resource('post/{name}/{id}', PostsController::class);
