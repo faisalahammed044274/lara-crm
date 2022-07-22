@@ -46,12 +46,13 @@ Database Raw SQL Queries
  */
 
 // Route::get('/insert', function () {
-//     DB::insert('insert into posts (title, content) values (?, ?)', ['PHP', 'PHP is a Scripting language for web']);
+//     DB::insert('insert into posts (title, content) values (?, ?)', ['Eloquent ORM', 'firstOrFail() returns the first record found in the database. If no matching model exist, it throws an error.']);
 // });
 
 // Route::get('/read', function () {
-//     $results = DB::select('select * from posts where id = ?', [1]);
+//     $results = DB::select('select * from posts where id = ?', [4]);
 //     return var_dump($results);
+// });
 
 // //    foreach($results as $post){
 // //     // return $post->title;
@@ -107,6 +108,6 @@ Route::get('/findmore', function () {
     // $posts = Post::findOrFail(1);
     // return $posts;
 
-    $posts = Post::where('users_count', '<', 50)->firstOrFail();
+    $posts = Post::where('title', '<', 50)->firstOrFail();
     return $posts;
 });
