@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Route::get('/about', function () {
 //     return 'This is <b>ABOUT</b> Page';
@@ -36,8 +36,18 @@ Route::get('/', function () {
 // }));
 
 // Route::get('/post/{name}/{id}', [PostsController::class, 'index'])->name('index');
-Route::get('/about', [PostsController::class, 'about'])->name('about');
-Route::get('/show/{id}/{name}/{password}', [PostsController::class, 'showPosts'])->name('show');
-Route::get('/contact', [PostsController::class, 'contact'])->name('contact');
+// Route::get('/about', [PostsController::class, 'about'])->name('about');
+// Route::get('/show/{id}/{name}/{password}', [PostsController::class, 'showPosts'])->name('show');
+// Route::get('/contact', [PostsController::class, 'contact'])->name('contact');
+
+/*
+------------------------
+insert data
+------------------------
+ */
+
+Route::get('/insert', function () {
+    DB::insert('insert into posts (title, content) values (?, ?)', ['PHP', 'PHP is a Scripting language for web']);
+});
 
 // Route::resource('post/{name}/{id}', PostsController::class);
