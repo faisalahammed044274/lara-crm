@@ -92,12 +92,8 @@ ELOQUENT ORM
 
 Route::get('/find', function () {
 
-    $posts = Post::find(2);
+    $posts = Post::find(1);
 
-    foreach ($posts as $post) {
-
-        return $post->title;
-
-    }
+    return $posts->title;
 
 });
