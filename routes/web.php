@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,15 +60,44 @@ Database Raw SQL Queries
 // });
 
 // Route::get('/update', function(){
-    
+
 //     $updated = DB::update('update posts set title = "PHP with Laravel" where id =?', [1]);
 
 //     return $updated;
 // });
 
-Route::get('/delete', function(){
-    $deleted = DB::delete('delete from posts where id = ?',[3]);
-    return $deleted;
-});
+// Route::get('/delete', function(){
+//     $deleted = DB::delete('delete from posts where id = ?',[3]);
+//     return $deleted;
+// });
 
 // Route::resource('post/{name}/{id}', PostsController::class);
+
+/*
+===================
+ELOQUENT ORM
+===================
+ */
+
+// Route::get('/read', function () {
+
+//     $posts = Post::all();
+
+//     foreach ($posts as $post) {
+
+//         return $post->title;
+//     }
+
+// });
+
+Route::get('/find', function () {
+
+    $posts = Post::find(2);
+
+    foreach ($posts as $post) {
+
+        return $post->title;
+
+    }
+
+});
