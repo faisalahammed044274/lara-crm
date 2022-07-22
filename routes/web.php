@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,12 +41,22 @@ use App\Http\Controllers\PostsController;
 
 /*
 ------------------------
-insert data
+Database Raw SQL Queries
 ------------------------
  */
 
-Route::get('/insert', function () {
-    DB::insert('insert into posts (title, content) values (?, ?)', ['PHP', 'PHP is a Scripting language for web']);
+// Route::get('/insert', function () {
+//     DB::insert('insert into posts (title, content) values (?, ?)', ['PHP', 'PHP is a Scripting language for web']);
+// });
+
+Route::get('/read', function () {
+    $results = DB::select('select * from posts where id = ?', [1]);
+    return var_dump($results);
+
+//    foreach($results as $post){
+//     // return $post->title;
+//    }
+
 });
 
 // Route::resource('post/{name}/{id}', PostsController::class);
