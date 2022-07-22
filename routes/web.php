@@ -90,10 +90,15 @@ ELOQUENT ORM
 
 // });
 
-Route::get('/find', function () {
+// Route::get('/find', function () {
 
-    $posts = Post::find(1);
+//     $posts = Post::find(1);
 
-    return $posts->title;
+//     return $posts->title;
 
+// });
+
+Route::get('/findwhere', function () {
+    $posts = Post::where('id', 1)->orderBy('id', 'desc')->take(1)->get();
+    return $posts;
 });
