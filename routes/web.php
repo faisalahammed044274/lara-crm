@@ -108,4 +108,5 @@ Route::get('/findmore', function () {
     // return $posts;
 
     $posts = Post::where('users_count', '<', 50)->firstOrFail();
+    return $posts;
 });
