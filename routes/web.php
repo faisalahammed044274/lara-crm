@@ -49,14 +49,21 @@ Database Raw SQL Queries
 //     DB::insert('insert into posts (title, content) values (?, ?)', ['PHP', 'PHP is a Scripting language for web']);
 // });
 
-Route::get('/read', function () {
-    $results = DB::select('select * from posts where id = ?', [1]);
-    return var_dump($results);
+// Route::get('/read', function () {
+//     $results = DB::select('select * from posts where id = ?', [1]);
+//     return var_dump($results);
 
-//    foreach($results as $post){
-//     // return $post->title;
-//    }
+// //    foreach($results as $post){
+// //     // return $post->title;
+// //    }
 
+// });
+
+Route::get('/update', function(){
+    
+    $updated = DB::update('update posts set title = "PHP with Laravel" where id =?', [1]);
+
+    return $updated;
 });
 
 // Route::resource('post/{name}/{id}', PostsController::class);
