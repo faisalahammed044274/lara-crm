@@ -104,6 +104,8 @@ ELOQUENT ORM
 // });
 
 Route::get('/findmore', function () {
-    $posts = Post::findOrFail(1);
-    return $posts;
+    // $posts = Post::findOrFail(1);
+    // return $posts;
+
+    $posts = Post::where('users_count', '<', 50)->firstOrFail();
 });
