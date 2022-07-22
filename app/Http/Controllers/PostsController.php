@@ -99,4 +99,9 @@ class PostsController extends Controller
         return view('post.show', compact('id', 'name', 'password'));
     }
 
+    public function suha()
+    {
+        return view('suha');
+    }
+
 }
