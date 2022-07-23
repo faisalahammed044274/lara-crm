@@ -76,7 +76,7 @@ Database Raw SQL Queries
 
 /*
 ===================
-ELOQUENT ORM
+Read, Update, Create, Delete Data
 ===================
  */
 
@@ -127,12 +127,21 @@ ELOQUENT Inserting Saving Data
 //     $post->save();
 // });
 
-Route::get('/basicupdate2', function(){
-    $post = Post::find(2);
+// Route::get('/basicupdate2', function(){
+//     $post = Post::find(2);
 
-    $post->title = '2New Eloquent title insert2';
-    $post->content = 'WOW! 2Eloquent is really cool2';
+//     $post->title = '2New Eloquent title insert2';
+//     $post->content = 'WOW! 2Eloquent is really cool2';
 
-$post->save();
-    
+// $post->save();
+
+// });
+
+// Route::get('/create', function(){
+//    Post::create(['title'=>'This is created method','content'=>'WOW! I am learning laravel eloquent orm']);
+// });
+
+Route::get('/update', function () {
+
+    Post::where('id', 2)->where('is_admin', 0)->update(['title' => 'Laravel Updated title', 'content' => 'I love to learn Laravel']);
 });
