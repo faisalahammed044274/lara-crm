@@ -127,7 +127,7 @@ ELOQUENT Inserting Saving Data
 //     $post->save();
 // });
 
-Route::get('/update', function(){
+Route::get('/basicupdate2', function(){
     $post = Post::find(2);
 
     $post->title = '2New Eloquent title insert2';
