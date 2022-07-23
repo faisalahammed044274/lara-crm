@@ -104,10 +104,35 @@ ELOQUENT ORM
 //     return $posts;
 // });
 
-Route::get('/findmore', function () {
-    // $posts = Post::findOrFail(1);
-    // return $posts;
+// Route::get('/findmore', function () {
+//     // $posts = Post::findOrFail(1);
+//     // return $posts;
 
-    $posts = Post::where('title', '<', 50)->firstOrFail();
-    return $posts;
+//     $posts = Post::where('title', '<', 50)->firstOrFail();
+//     return $posts;
+// });
+
+/*
+===================
+ELOQUENT Inserting Saving Data
+===================
+ */
+
+// Route::get('/basicinsert', function () {
+//     $post = new Post;
+
+//     $post->title = 'New Eloquent title insert';
+//     $post->content = 'WOW! Eloquent is really cool';
+
+//     $post->save();
+// });
+
+Route::get('/update', function(){
+    $post = Post::find(2);
+
+    $post->title = '2New Eloquent title insert2';
+    $post->content = 'WOW! 2Eloquent is really cool2';
+
+$post->save();
+    
 });
