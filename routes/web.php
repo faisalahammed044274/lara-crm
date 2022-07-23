@@ -141,7 +141,14 @@ ELOQUENT Inserting Saving Data
 //    Post::create(['title'=>'This is created method','content'=>'WOW! I am learning laravel eloquent orm']);
 // });
 
-Route::get('/update', function () {
+// Route::get('/update', function () {
 
-    Post::where('id', 2)->where('is_admin', 0)->update(['title' => 'Laravel Updated title', 'content' => 'I love to learn Laravel']);
+//     Post::where('id', 2)->where('is_admin', 0)->update(['title' => 'Laravel Updated title', 'content' => 'I love to learn Laravel']);
+// });
+
+Route::get('/delete', function () {
+
+    $post = Post::find(2);
+
+    $post->delete();
 });
