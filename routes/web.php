@@ -146,9 +146,13 @@ ELOQUENT Inserting Saving Data
 //     Post::where('id', 2)->where('is_admin', 0)->update(['title' => 'Laravel Updated title', 'content' => 'I love to learn Laravel']);
 // });
 
-Route::get('/delete', function () {
+// Route::get('/delete', function () {
 
-    $post = Post::find(2);
+//     $post = Post::find(2);
 
-    $post->delete();
+//     $post->delete();
+// });
+
+Route::get('/delete2', function(){
+   Post::destroy(5,6); 
 });
