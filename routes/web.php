@@ -167,13 +167,18 @@ Route::get('/softdelete', function () {
 
 Route::get('/readsoftdelete', function () {
 
-    // $post = Post::find(5);
-    // return $post;
+// // $post = Post::find(5);
+// // return $post;
 
-//    $post = Post::withTrashed()->where('id', 4)->get();
-//     return $post;
+// //    $post = Post::withTrashed()->where('id', 4)->get();
+// //     return $post;
 
     $post = POST::onlyTrashed()->orderBy('deleted_at', 'desc')->get();
 
     return $post;
+});
+
+Route::get('/restore', function () {
+    Post::withTrashed()->where('is_admin', 0)->restore();
+
 });
