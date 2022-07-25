@@ -14,7 +14,7 @@ use App\Models\Post;
  */
 
 Route::get('/', function () {
-    return '<center style="background:red; margin:50px 0; border-radius:34px;  color:honeydew; padding:14rem;">
+    return '<center style="background:green; margin:50px 0; border-radius:34px;  color:honeydew; padding:12rem;">
     <h1>Hello From Laravel 9.</h1>
     <h3>Laravel is a web application framework with expressive, elegant syntax. We’ve already laid the foundation — freeing you to create without sweating the small things.</h3>
 
