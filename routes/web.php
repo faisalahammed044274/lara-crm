@@ -13,9 +13,13 @@ use App\Models\Post;
 |
  */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return '<center style="background:red; margin:50px 0; border-radius:34px;  color:honeydew; padding:14rem;">
+    <h1>Hello From Laravel 9.</h1>
+    <h3>Laravel is a web application framework with expressive, elegant syntax. We’ve already laid the foundation — freeing you to create without sweating the small things.</h3>
+
+    </center>';
+});
 
 // Route::get('/about', function () {
 //     return 'This is <b>ABOUT</b> Page';
@@ -86,7 +90,7 @@ Read, Update, Create, Delete Data
 
 //     foreach ($posts as $post) {
 
-//         return $post->title;
+//         return $post;
 //     }
 
 // });
@@ -137,8 +141,8 @@ ELOQUENT Inserting Saving Data
 
 // });
 
-// Route::get('/create', function(){
-//    Post::create(['title'=>'This is created method','content'=>'WOW! I am learning laravel eloquent orm']);
+// Route::get('/create', function () {
+//     Post::create(['title' => 'Softdelete Features', 'content' => ' Laravel provides soft delete feature which never delete data from database. It just hide them from showing. ']);
 // });
 
 // Route::get('/update', function () {
@@ -153,6 +157,10 @@ ELOQUENT Inserting Saving Data
 //     $post->delete();
 // });
 
-Route::get('/delete2', function(){
-   Post::destroy(5,6); 
+// Route::get('/delete2', function(){
+//    Post::destroy(5,6);
+// });
+
+Route::get('/softdelete', function () {
+    Post::find(5)->delete();
 });
