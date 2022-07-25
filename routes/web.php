@@ -161,11 +161,11 @@ ELOQUENT Inserting Saving Data
 //    Post::destroy(5,6);
 // });
 
-Route::get('/softdelete', function () {
-    Post::find(4)->delete();
-});
+// Route::get('/softdelete', function () {
+//     Post::find(4)->delete();
+// });
 
-Route::get('/readsoftdelete', function () {
+// Route::get('/readsoftdelete', function () {
 
 // // $post = Post::find(5);
 // // return $post;
@@ -173,12 +173,17 @@ Route::get('/readsoftdelete', function () {
 // //    $post = Post::withTrashed()->where('id', 4)->get();
 // //     return $post;
 
-    $post = POST::onlyTrashed()->orderBy('deleted_at', 'desc')->get();
+//     $post = POST::onlyTrashed()->orderBy('deleted_at', 'desc')->get();
 
-    return $post;
-});
+//     return $post;
+// });
 
-Route::get('/restore', function () {
-    Post::withTrashed()->where('is_admin', 0)->restore();
+// Route::get('/restore', function () {
+//     Post::withTrashed()->where('is_admin', 0)->restore();
 
+// });
+
+Route::get('/forcedelete', function(){
+    
+    Post::withTrashed()->where('is_admin',0)->forceDelete();
 });
