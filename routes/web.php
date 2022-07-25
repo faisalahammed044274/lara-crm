@@ -162,5 +162,18 @@ ELOQUENT Inserting Saving Data
 // });
 
 Route::get('/softdelete', function () {
-    Post::find(5)->delete();
+    Post::find(4)->delete();
+});
+
+Route::get('/readsoftdelete', function () {
+
+    // $post = Post::find(5);
+    // return $post;
+
+//    $post = Post::withTrashed()->where('id', 4)->get();
+//     return $post;
+
+    $post = POST::onlyTrashed()->orderBy('deleted_at', 'desc')->get();
+
+    return $post;
 });
