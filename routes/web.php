@@ -204,23 +204,28 @@ ELOQUENT RelationShips
 //one to one
 //------------
 
-
 // Route::get('/user/{id}/post', function ($id) {
 
 //     return User::find($id)->post->content;
 
 // });
 
+//INVERSE
+
+Route::get('/posts/{id}/user', function ($id) {
+
+    return Post::find($id)->user_id;
+
+});
 
 //------------
 //one to many
 //------------
 
-
-Route::get('/posts', function(){
+Route::get('/posts', function () {
     $user = User::find(1);
 
-    foreach($user->posts as $post){
-      echo  $post->title . "<br>";
+    foreach ($user->posts as $post) {
+        echo $post->title . "<br>";
     }
 });
