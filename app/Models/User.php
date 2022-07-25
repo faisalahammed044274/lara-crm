@@ -49,14 +49,7 @@ class User extends Authenticatable
         return $this->hasOne(Post::class);
     }
 
-    //-----------------------
-    //  inverse one to one
-    //-----------------------
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 
     //-----------------------
     //  hasMany Posts
