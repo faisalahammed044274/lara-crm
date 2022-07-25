@@ -204,17 +204,17 @@ ELOQUENT RelationShips
 //one to one
 //------------
 
-// Route::get('/user/{id}/post', function ($id) {
+Route::get('/user/{id}/post', function ($id) {
 
-//     return User::find($id)->post->content;
+    return User::find($id)->post->content;
 
-// });
+});
 
 //INVERSE
 
-Route::get('/posts/{id}/user', function ($id) {
+Route::get('/post/{id}/user', function ($id) {
 
-    return Post::find($id)->user_id;
+    return Post::find($id)->user->name;
 
 });
 
