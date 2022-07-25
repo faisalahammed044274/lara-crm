@@ -200,8 +200,27 @@ ELOQUENT RelationShips
 ======================
  */
 
-Route::get('/user/{id}/post', function ($id) {
+//------------
+//one to one
+//------------
 
-    return User::find($id)->post->content;
 
+// Route::get('/user/{id}/post', function ($id) {
+
+//     return User::find($id)->post->content;
+
+// });
+
+
+//------------
+//one to many
+//------------
+
+
+Route::get('/posts', function(){
+    $user = User::find(1);
+
+    foreach($user->posts as $post){
+      echo  $post->title . "<br>";
+    }
 });
