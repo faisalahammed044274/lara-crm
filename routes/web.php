@@ -204,39 +204,48 @@ ELOQUENT RelationShips
 //one to one
 //------------
 
-Route::get('/user/{id}/post', function ($id) {
+// Route::get('/user/{id}/post', function ($id) {
 
-    return User::find($id)->post->content;
+//     return User::find($id)->post->content;
 
-});
+// });
 
 //INVERSE
 
-Route::get('/post/{id}/user', function ($id) {
+// Route::get('/post/{id}/user', function ($id) {
 
-    return Post::find($id)->user->name;
+//     return Post::find($id)->user->name;
 
-});
+// });
 
 //------------
 //one to many
 //------------
 
-Route::get('/posts', function () {
-    $user = User::find(1);
+// Route::get('/posts', function () {
+//     $user = User::find(1);
 
-    foreach ($user->posts as $post) {
-        echo $post->title . "<br>";
-    }
-});
+//     foreach ($user->posts as $post) {
+//         echo $post->title . "<br>";
+//     }
+// });
 
-Route::get('/user/{id}/role', function ($id) {
+// Route::get('/user/{id}/role', function ($id) {
 
-    $user = User::find($id)->roles()->orderBy('id', 'desc')->get();
+//     $user = User::find($id)->roles()->orderBy('id', 'desc')->get();
 
-    return $user;
+//     return $user;
 
     // foreach ($user->roles as $role) {
     //     return $role->name;
     // }
+// });
+
+Route::get('/user/pivot', function(){
+   
+   $user = User::find(1);
+   foreach ($user->roles as $role){
+    echo $role->pivot;
+   }
+   
 });
