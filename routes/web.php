@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Post;
+use App\Models\Country;
 use App\Models\User;
 
 /*
@@ -180,8 +180,7 @@ ELOQUENT Inserting Saving Data
 // });
 
 // Route::get('/restore', function () {
-//     Post::withTrashed()->where('is_admin', 0)->restore();
-
+//     Post::withTrashed()->where('is_admin', 1)->restore();
 // });
 
 // Route::get('/forcedelete', function () {
@@ -236,16 +235,23 @@ ELOQUENT RelationShips
 
 //     return $user;
 
-    // foreach ($user->roles as $role) {
-    //     return $role->name;
-    // }
+// foreach ($user->roles as $role) {
+//     return $role->name;
+// }
 // });
 
-Route::get('/user/pivot', function(){
-   
-   $user = User::find(1);
-   foreach ($user->roles as $role){
-    echo $role->pivot;
-   }
-   
+Route::get('/user/pivot', function () {
+
+    $user = User::find(1);
+    foreach ($user->roles as $role) {
+        echo $role->pivot->created_at;
+    }
+
+});
+
+Route::get('/user/country', function () {
+    $country = Country::find(3);
+    foreach ($country->posts as $post) {
+        return $post->title;
+    }
 });
