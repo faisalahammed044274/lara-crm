@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Country;
+use App\Models\Post;
 use App\Models\User;
 
 /*
@@ -240,18 +240,30 @@ ELOQUENT RelationShips
 // }
 // });
 
-Route::get('/user/pivot', function () {
+// Route::get('/user/pivot', function () {
 
-    $user = User::find(1);
-    foreach ($user->roles as $role) {
-        echo $role->pivot->created_at;
-    }
+//     $user = User::find(1);
+//     foreach ($user->roles as $role) {
+//         echo $role->pivot->created_at;
+//     }
 
-});
+// });
 
-Route::get('/user/country', function () {
-    $country = Country::find(3);
-    foreach ($country->posts as $post) {
-        return $post->title;
+// Route::get('/user/country', function () {
+//     $country = Country::find(3);
+//     foreach ($country->posts as $post) {
+//         return $post->title;
+//     }
+// });
+
+//===============================
+//    Polymorphic Relationship
+//===============================
+
+Route::get('/user/photos', function () {
+    $user = Post::find(1);
+
+    foreach ($user->photos as $photo) {
+        return $photo;
     }
 });
