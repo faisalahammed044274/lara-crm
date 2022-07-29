@@ -271,5 +271,5 @@ ELOQUENT RelationShips
 Route::get('/photo/{id}/post', function ($id) {
     $photo = Photo::findOrFail($id);
 
-    return $photo;
+    return $photo->imageable;
 });

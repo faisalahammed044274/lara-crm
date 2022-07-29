@@ -67,4 +67,12 @@ class User extends Authenticatable
 
         //return $this->belongsToMany(Role::class, 'user_roles', 'user_id', 'role_id');
     }
+
+        //Polymorphic
+
+        public function photos(){
+        
+            return $this->morphMany(Photo::class, 'imageable');
+        }
+    
 }
