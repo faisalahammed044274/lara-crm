@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\Post;
 use App\Models\User;
+use App\Models\Photo;
 
 /*
 |--------------------------------------------------------------------------
@@ -260,10 +260,16 @@ ELOQUENT RelationShips
 //    Polymorphic Relationship
 //===============================
 
-Route::get('/user/{id}/photos', function ($id) {
-    $post = Post::find($id);
+// Route::get('/user/{id}/photos', function ($id) {
+//     $post = Post::find($id);
 
-    foreach ($post->photos as $photo) {
-        return $photo;
-    }
+//     foreach ($post->photos as $photo) {
+//         return $photo;
+//     }
+// });
+
+Route::get('/photo/{id}/post', function ($id) {
+    $photo = Photo::findOrFail($id);
+
+    return $photo;
 });
