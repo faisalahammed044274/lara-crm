@@ -261,9 +261,9 @@ ELOQUENT RelationShips
 //===============================
 
 Route::get('/user/{id}/photos', function ($id) {
-    $user = Post::find($id);
+    $post = Post::find($id);
 
-    foreach ($user->photos as $photo) {
+    foreach ($post->photos as $photo) {
         return $photo;
     }
 });
