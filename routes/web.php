@@ -260,8 +260,8 @@ ELOQUENT RelationShips
 //    Polymorphic Relationship
 //===============================
 
-Route::get('/user/photos', function () {
-    $user = Post::find(1);
+Route::get('/user/{id}/photos', function ($id) {
+    $user = Post::find($id);
 
     foreach ($user->photos as $photo) {
         return $photo;
